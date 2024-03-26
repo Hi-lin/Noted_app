@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#FFFFFF"
+    tools:context=".Settings">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:layout_editor_absoluteX="84dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/WarningSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="setWarningTime"
+                android:text="Set Time"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/WarningTime"
+                app:layout_constraintTop_toTopOf="@+id/WarningTime" />
+
+            <TextView
+                android:id="@+id/SettingsAssOp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assignment Options"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintBottom_toTopOf="@+id/SettingsClassOp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsClass" />
+
+            <TextView
+                android:id="@+id/SettingsAss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:gravity="center"
+                android:text="Assignment"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/SettingsClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/AssClassAdd"
+                app:singleSelection="true">
+
+            </com.google.android.material.chip.ChipGroup>
+
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/SettingsClassOp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="140dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:singleSelection="true">
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <Button
+                android:id="@+id/AssClassAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:onClick="AssClassCreate"
+                android:text="Add Class"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/AssClassCreateT"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAss" />
+
+            <Button
+                android:id="@+id/AssClassSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:onClick="AssClassRemove"
+                android:text="Remove Class"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/SettingsClass"
+                app:layout_constraintStart_toEndOf="@+id/AssClassAdd"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAss"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageButton
+                android:id="@+id/AssClassCreateCreate"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="50dp"
+                android:contentDescription="create class"
+                android:onClick="AssClassCreateYes"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@+id/AssClassCreateNo"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAss"
+                app:srcCompat="@drawable/checkmark" />
+
+            <TextView
+                android:id="@+id/AssClassCreateT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Class Name:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/SettingsClass"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAss" />
+
+            <TextView
+                android:id="@+id/AssClassCreateTOp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Option Name:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/AssClassAddOp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAssOp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/AssClassCreateIT"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:hint="Type out name"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/AssClassCreateT"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAss" />
+
+            <ImageButton
+                android:id="@+id/AssClassCreateNo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:contentDescription="exit"
+                android:onClick="AssClassReturn"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAss"
+                app:srcCompat="@android:drawable/ic_delete" />
+
+            <Button
+                android:id="@+id/AssClassAddOp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:onClick="AssClassCreateOp"
+                android:text="Add Option"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/SettingsClassOp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAssOp" />
+
+            <Button
+                android:id="@+id/AssClassSwitchOp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:onClick="removeOption"
+                android:text="Remove Option"
+                app:layout_constraintBottom_toBottomOf="@+id/AssClassAddOp"
+                app:layout_constraintStart_toEndOf="@+id/AssClassAddOp" />
+
+            <ImageButton
+                android:id="@+id/AssClassCreateCreateOp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="50dp"
+                android:contentDescription="create class"
+                android:onClick="AssClassCreateYesOp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@+id/AssClassCreateNoOp"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAssOp"
+                app:srcCompat="@drawable/checkmark" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/AssClassCreateITOp"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:hint="Type out name"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/AssClassCreateTOp"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAssOp" />
+
+            <ImageButton
+                android:id="@+id/AssClassCreateNoOp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:contentDescription="exit"
+                android:onClick="AssClassReturn"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SettingsAssOp"
+                app:srcCompat="@android:drawable/ic_delete" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="550dp"
+                android:text="Warning time"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/WarningTime"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginEnd="50dp"
+                android:ems="10"
+                android:hint="# of days before deadline"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.194"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/topBar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-2dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="166dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="Settings"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="12dp"
+            android:background="#FFFFFF"
+            android:contentDescription="Add an assignment"
+            android:onClick="GoToCreate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.583"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginEnd="13dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:contentDescription="Go to Assignment List"
+            android:onClick="GoToMain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.416"
+            app:srcCompat="@drawable/img_1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

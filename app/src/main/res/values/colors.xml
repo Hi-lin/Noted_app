@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="topBar">#6DEC7A</color>
+    <color name = "warning">#74FF9E25</color>
+    <color name = "late">#7CFF3D0C</color>
+</resources>
